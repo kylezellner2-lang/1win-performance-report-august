@@ -84,7 +84,7 @@
   .flagship .embedbox{border-radius:14px;overflow:hidden;background:#fff;min-height:420px;
     box-shadow:0 16px 40px rgba(0,0,0,.45)}
   .flagship .embedbox iframe,.flagship .embedbox .instagram-media{border-radius:14px!important;margin:0!important}
-  .flagship .embedbox.isimg{background:#000;aspect-ratio:1206/1520}
+  .flagship .embedbox.isimg{background:#000;aspect-ratio:9/16;min-height:0}
   .flagship .embedbox.iscard{background:transparent;box-shadow:none;min-height:0}
   /* Instagram-style card replica */
   .igcard{background:#fff;color:#111;border-radius:14px;overflow:hidden;
@@ -218,6 +218,8 @@ const REPORT = {
   period: "August 2026 Performance",
   preparedFor: "Prepared for 1win · August 2026",
   goal: 2000000,
+  /* Trial cards link out to their reel. Flip to false to show counts only. */
+  linkTrials: true,
   groups: [
     {
       name: "Campaign 1",
@@ -410,8 +412,8 @@ REPORT.groups.forEach(g=>{
     const card=document.createElement("div");
     card.className="card"+(v>=1e5?" top":"");
     card.innerHTML=`<span class="rank">#${i+1}</span>
-      <div><div class="cv">${compact(v)}</div><div class="cl">views</div></div>
-      <a class="btn" href="${url}" target="_blank" rel="noopener">${igSvg()} Watch</a>`;
+      <div><div class="cv">${compact(v)}</div><div class="cl">views</div></div>`
+      + (REPORT.linkTrials ? `<a class="btn" href="${url}" target="_blank" rel="noopener">${igSvg()} Watch</a>` : ``);
     grid.appendChild(card);
   });
   sec.appendChild(grid);
