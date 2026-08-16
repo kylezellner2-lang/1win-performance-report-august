@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>1win — August 2026 Performance Report</title>
+<title>1win — Month Two Performance Report</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
@@ -15,7 +15,7 @@
     --head:'Sora',sans-serif; --body:'Inter',sans-serif;
   }
   *{box-sizing:border-box;margin:0;padding:0}
-  html{scroll-behavior:smooth}
+  html{scroll-behavior:smooth;overflow-x:hidden}
   body{
     background:radial-gradient(1200px 720px at 50% -220px,#0e1a33 0%,var(--bg) 55%) fixed;
     color:var(--text); font-family:var(--body);
@@ -30,6 +30,7 @@
     color:rgba(255,255,255,.035);pointer-events:none;user-select:none;z-index:0;line-height:.8}
   .wm-1{top:340px;right:-2vw;font-size:20vw}
   .wm-2{bottom:120px;left:-2vw;font-size:16vw}
+  @media(max-width:780px){.wm-1{right:0}.wm-2{left:0}}
 
   /* ---------- LOGO LOCKUP ---------- */
   .lockup{display:inline-flex;align-items:center;gap:12px;margin-bottom:22px}
@@ -121,7 +122,8 @@
     background:linear-gradient(180deg,#fff,#a9cbff);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
   .flagship .fvlabel{color:var(--muted);font-size:.8rem;text-transform:uppercase;letter-spacing:.1em;margin-top:4px}
   .flagship .blurb{color:#c5d2ea;margin:16px 0 20px;font-size:.98rem;max-width:460px}
-  @media(max-width:780px){.flagship{grid-template-columns:1fr;justify-items:center;text-align:center}
+  @media(max-width:780px){.flagship{grid-template-columns:1fr;justify-items:center;text-align:center;padding:22px 18px}
+    .flagship .embedbox{width:min(320px,80vw);justify-self:center}
     .flagship .blurb{margin-left:auto;margin-right:auto}.flagship .right{display:flex;flex-direction:column;align-items:center}}
 
   /* ---------- TRIAL GRID ---------- */
@@ -163,7 +165,7 @@
       <span class="wordmark">1win</span>
       <span class="x">× Kyle Zellner</span>
     </div>
-    <h1>Monthly Performance <span>Report</span></h1>
+    <h1>Month Two Performance <span>Report</span></h1>
     <div class="sub" id="periodSub">Content delivery &amp; view performance</div>
 
     <div class="bignum" id="totalViews">0</div>
@@ -214,8 +216,8 @@
    The page totals everything and builds itself.
    ============================================================ */
 const REPORT = {
-  period: "August 2026 Performance",
-  preparedFor: "Prepared for 1win · August 2026",
+  period: "Month Two Performance",
+  preparedFor: "Prepared for 1win · Month Two",
   goal: 2000000,
   /* Trial cards link out to their reel. Flip to false to show counts only. */
   linkTrials: true,
@@ -243,9 +245,9 @@ const REPORT = {
     {
       name: "Campaign 2",
       collab: {
-        url: "https://www.instagram.com/reel/Daybe7eMNkz/",
+        url: "https://www.instagram.com/reel/Da8bLg3O2U2/",
         views: 1554415,
-        img: "img/cover-Daybe7eMNkz-v2.jpg",
+        img: "img/cover-Da8bLg3O2U2.jpg",
         badge: "★ Tagged Feed Post",
         role: "Tagged Feed Post",
         blurb: "The tagged feed post from Campaign 2 — 1.55M views on the feed, with a trial variation that ran to 12.6M on its own."
