@@ -226,6 +226,7 @@ const REPORT = {
       collab: {
         url: "https://www.instagram.com/reel/Daybe7eMNkz/",
         views: 284000,
+        img: "img/cover-Daybe7eMNkz.jpg",
         badge: "★ Tagged Feed Post",
         role: "Tagged Feed Post",
         blurb: "The tagged feed post anchoring the Campaign 1 slate, carrying 284K views on the main feed."
@@ -245,6 +246,7 @@ const REPORT = {
       collab: {
         url: "https://www.instagram.com/reel/Daybe7eMNkz/",
         views: 1554415,
+        img: "img/cover-Daybe7eMNkz.jpg",
         badge: "★ Tagged Feed Post",
         role: "Tagged Feed Post",
         blurb: "The tagged feed post from Campaign 2 — 1.55M views on the feed, with a trial variation that ran to 12.6M on its own."
@@ -263,6 +265,7 @@ const REPORT = {
       collab: {
         url: "https://www.instagram.com/reel/DbLzbT_MHXU/",
         views: 639000,
+        img: "img/cover-DbLzbT_MHXU.jpg",
         badge: "★ Selected Collab",
         role: "Official Collaboration",
         blurb: "The official 1win collab post for Campaign 3, cleared 639K views on the feed."
@@ -365,9 +368,8 @@ REPORT.groups.filter(g=>g.collab).forEach(g=>{
       </div>`;
   } else if(c.img){
     boxcls=" isimg";
-    mediaHTML=`<a class="poster" href="${c.url}" target="_blank" rel="noopener" style="background-image:url('${c.img}')" aria-label="Watch reel">
-         <span class="playbtn"><svg viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span>
-       </a>`;
+    /* Instagram's cover already has a play glyph burned in — no overlay of our own. */
+    mediaHTML=`<a class="poster" href="${c.url}" target="_blank" rel="noopener" style="background-image:url('${c.img}')" aria-label="Watch reel"></a>`;
   } else {
     mediaHTML=`<blockquote class="instagram-media" data-instgrm-permalink="${c.url}" data-instgrm-version="14"
         style="width:100%;min-width:300px;margin:0;background:#fff;border:0;"></blockquote>`;
