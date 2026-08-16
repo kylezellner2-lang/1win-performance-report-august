@@ -61,14 +61,13 @@
   .pct{color:var(--green);font-weight:800}
 
   /* ---------- STAT TILES ---------- */
-  .stats{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin:44px 0 10px}
+  .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:44px 0 10px}
   .stat{background:linear-gradient(180deg,var(--card2),var(--card));border:1px solid var(--line);
     border-radius:16px;padding:20px 18px;text-align:center}
   .stat .v{font-family:var(--head);font-size:clamp(1.4rem,4vw,2rem);font-weight:800;letter-spacing:-.02em}
   .stat .v.g{color:var(--green)} .stat .v.b{color:var(--blue2)}
   .stat .l{color:var(--muted);font-size:.76rem;margin-top:6px;letter-spacing:.05em;text-transform:uppercase}
-  @media(max-width:960px){.stats{grid-template-columns:repeat(3,1fr)}}
-  @media(max-width:680px){.stats{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:680px){.stats{grid-template-columns:repeat(1,1fr)}}
 
   /* ---------- SECTION HEADS ---------- */
   section{margin-top:56px}
@@ -324,9 +323,7 @@ document.getElementById("goalMarker").style.left=Math.min(100, goal/grandTotal*1
 const statsEl=document.getElementById("stats");
 [["v g",compact(grandTotal),"Total Views"],
  ["v g",pct+"%","of 2M Goal"],
- ["v",count,"Videos"],
- ["v b",over100k,"Over 100K Views"],
- ["v b",compact(biggest),"Biggest Single Post"]
+ ["v",count,"Videos"]
 ].forEach(([cls,v,l])=>{
   const d=document.createElement("div");d.className="stat";
   d.innerHTML=`<div class="${cls}">${v}</div><div class="l">${l}</div>`;
