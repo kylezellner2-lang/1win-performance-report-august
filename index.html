@@ -368,8 +368,11 @@ REPORT.groups.filter(g=>g.collab).forEach(g=>{
       </div>`;
   } else if(c.img){
     boxcls=" isimg";
-    /* Instagram's cover already has a play glyph burned in — no overlay of our own. */
-    mediaHTML=`<a class="poster" href="${c.url}" target="_blank" rel="noopener" style="background-image:url('${c.img}')" aria-label="Watch reel"></a>`;
+    /* Covers come from the single-post embed page and are clean media (no burned-in
+       play glyph), so we draw our own button. */
+    mediaHTML=`<a class="poster" href="${c.url}" target="_blank" rel="noopener" style="background-image:url('${c.img}')" aria-label="Watch reel">
+         <span class="playbtn"><svg viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span>
+       </a>`;
   } else {
     mediaHTML=`<blockquote class="instagram-media" data-instgrm-permalink="${c.url}" data-instgrm-version="14"
         style="width:100%;min-width:300px;margin:0;background:#fff;border:0;"></blockquote>`;
