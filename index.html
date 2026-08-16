@@ -218,22 +218,27 @@ const REPORT = {
   period: "August 2026 Performance",
   preparedFor: "Prepared for 1win · August 2026",
   goal: 2000000,
+  /* Trial cards link out to their reel. Flip to false to show counts only. */
+  linkTrials: true,
   groups: [
     {
       name: "Campaign 1",
       collab: {
         url: "https://www.instagram.com/reel/Daybe7eMNkz/",
-        views: 279000,
+        views: 284000,
         img: "img/cover-Daybe7eMNkz.jpg",
         badge: "★ Tagged Feed Post",
         role: "Tagged Feed Post",
-        blurb: "The tagged feed post anchoring the Campaign 1 slate, carrying 279K views on the main feed."
+        blurb: "The tagged feed post anchoring the Campaign 1 slate, carrying 284K views on the main feed."
       },
       videos: [
-        ["https://www.instagram.com/reel/DbONHzNMUtH/", 12300],
-        ["https://www.instagram.com/reel/DbW2IMNMNdv/", 2758],
+        ["https://www.instagram.com/reel/DbW2IMNMNdv/", 10100],
+        ["https://www.instagram.com/reel/DbvtbOasukp/", 4877],
+        ["https://www.instagram.com/reel/DbmxmInMvQH/", 2480],
+        ["https://www.instagram.com/reel/Dbvt0QDstf6/", 2396],
         ["https://www.instagram.com/reel/DbLyoI4M5Kj/", 2500],
-        ["https://www.instagram.com/reel/DbQWZtSsn9e/", 560]
+        ["https://www.instagram.com/reel/Db0eqzxsC38/", 2212],
+        ["https://www.instagram.com/reel/Dbvt0QDstf6/", 1659]
       ]
     },
     {
@@ -247,7 +252,7 @@ const REPORT = {
         blurb: "The tagged feed post from Campaign 2 — 1.55M views on the feed, with a trial variation that ran to 12.6M on its own."
       },
       videos: [
-        ["https://www.instagram.com/reel/Db66OhOs5fw/", 12610592],
+        ["https://www.instagram.com/reel/Db6Mmzqs8mP/", 12610592],
         ["https://www.instagram.com/reel/Da8c_MCxrgw/", 1728600],
         ["https://www.instagram.com/reel/Da8c_MCxrgw/", 885637],
         ["https://www.instagram.com/reel/Daybe7eMNkz/", 343000],
@@ -266,12 +271,10 @@ const REPORT = {
         blurb: "The official 1win collab post for Campaign 3, cleared 639K views on the feed."
       },
       videos: [
-        ["https://www.instagram.com/reel/DbvtbOasukp/", 19600],
-        ["https://www.instagram.com/reel/DbW2IMNMNdv/", 10100],
-        ["https://www.instagram.com/reel/DbvtbOasukp/", 4876],
-        ["https://www.instagram.com/reel/DbvY-WxMoA3/", 2395],
-        ["https://www.instagram.com/reel/Db66OhOs5fw/", 2211],
-        ["https://www.instagram.com/reel/Db66OhOs5fw/", 1658]
+        ["https://www.instagram.com/reel/DbONHzNMUtH/", 12400],
+        ["https://www.instagram.com/reel/DbQzNDtsDCY/", 2500],
+        ["https://www.instagram.com/reel/DbLyoI4M5Kj/", 2500],
+        ["https://www.instagram.com/reel/DbQWZtSsn9e/", 579]
       ]
     },
     {
@@ -280,11 +283,12 @@ const REPORT = {
       note: "Posts that ran in Trials and were not moved to the main feed — pure additional exposure.",
       videos: [
         ["https://www.instagram.com/reel/DbvY-WxMoA3/", 276000],
-        ["https://www.instagram.com/reel/DbvaetJsnpl/", 179000],
+        ["https://www.instagram.com/reel/DbvaetJsnpl/", 185000],
         ["https://www.instagram.com/reel/Db66OhOs5fw/", 89111],
         ["https://www.instagram.com/reel/DbvY-WxMoA3/", 21300],
         ["https://www.instagram.com/reel/DbvY-WxMoA3/", 10600],
-        ["https://www.instagram.com/reel/Db66OhOs5fw/", 1963]
+        ["https://www.instagram.com/reel/Db66OhOs5fw/", 1963],
+        ["https://www.instagram.com/reel/Db0d2bzs6tO/", 1600]
       ]
     }
   ]
@@ -364,6 +368,8 @@ REPORT.groups.filter(g=>g.collab).forEach(g=>{
       </div>`;
   } else if(c.img){
     boxcls=" isimg";
+    /* Covers come from the single-post embed page and are clean media (no burned-in
+       play glyph), so we draw our own button. */
     mediaHTML=`<a class="poster" href="${c.url}" target="_blank" rel="noopener" style="background-image:url('${c.img}')" aria-label="Watch reel">
          <span class="playbtn"><svg viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span>
        </a>`;
@@ -413,8 +419,8 @@ REPORT.groups.forEach(g=>{
     const card=document.createElement("div");
     card.className="card"+(v>=1e5?" top":"");
     card.innerHTML=`<span class="rank">#${i+1}</span>
-      <div><div class="cv">${compact(v)}</div><div class="cl">views</div></div>
-      <a class="btn" href="${url}" target="_blank" rel="noopener">${igSvg()} Watch</a>`;
+      <div><div class="cv">${compact(v)}</div><div class="cl">views</div></div>`
+      + (REPORT.linkTrials ? `<a class="btn" href="${url}" target="_blank" rel="noopener">${igSvg()} Watch</a>` : ``);
     grid.appendChild(card);
   });
   sec.appendChild(grid);
